@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Daftar Peserta - {{ $dissemination->event_name }}</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        color: #333;
+        background: #f0f0f0;
+        padding: 0;
+      }
+
+      .page-container {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 1.5cm;
+        margin: 0 auto;
+        background: #fff;
+      }
+
+      /* HEADER */
+      .document-header {
+        border-bottom: 2px solid #065366;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .document-title {
+        text-align: center;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .document-title img {
+        max-height: 60px;
+        margin-bottom: 10px;
+      }
+
+      .document-title h1 {
+        font-size: 18px;
+        color: #065366;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .document-title .subtitle {
+        font-size: 12px;
+        color: #555;
+      }
+
+      /* DETAIL BOX */
+      .event-details {
+        margin: 0 auto 20px auto;
+        width: 90%;
+        font-size: 11px;
+        background: #f7f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 10px 15px;
+      }
+
+      .detail-row {
+        display: flex;
+        margin-bottom: 4px;
+      }
+
+      .detail-label {
+        width: 150px;
+        font-weight: bold;
+        color: #065366;
+      }
+
+      .detail-separator {
+        margin-right: 5px;
+      }
+
+      .detail-value {
+        flex: 1;
+      }
+
+      /* SECTION TITLE */
+      .section-title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #065366;
+        text-align: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 5px;
+      }
+
+      /* TABLE */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9px;
+        margin-bottom: 15px;
+      }
+
+      thead {
+        background-color: #065366;
+        color: #fff;
+      }
+
+      thead th {
+        padding: 6px 4px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 1px solid #065366;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f7f9fa;
+      }
+
+      tbody td {
+        padding: 5px 4px;
+        border: 1px solid #e0e0e0;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .col-signature {
+        height: 50px;
+      }
+
+      .col-signature img {
+        max-height: 45px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      /* FOOTER */
+      .document-footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+        text-align: center;
+        font-size: 9px;
+        color: #888;
+        line-height: 1.4;
+      }
+
+      /* PRINT OPTIMIZATION */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 1.5cm;
+        }
+
+        body {
+          background: #fff;
+          padding: 0;
+          margin: 0;
+        }
+
+        .page-container {
+          width: auto;
+          min-height: 0;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="document-header">
+        <div class="document-title">
+          <div class="logo-cell">
+            <img
+              src="{{ $dissemination->province_logo_url ?? 'https://kopdesmerahputih.kop.id/images/hut-ri/logo.png' }}"
+              alt="Logo"
+            />
+          </div>
+          <div class="title-cell">
+            <h1>{{ $dissemination->event_name }}</h1>
+            <div class="subtitle">Daftar Hadir Peserta Kegiatan</div>
+          </div>
+        </div>
+
+        <div class="event-details">
+          <div class="detail-row">
+            <div class="detail-label">Penyelenggara</div>
+            <div class="detail-separator">:</div>
+            <div class="detail-value">
+              {{ $dissemination->institution->name }}
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Tempat Pelaksanaan</div>
+            <div class="detail-separator">:</div>
+            <div class="detail-value">{{ $dissemination->venues }}</div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Tanggal Kegiatan</div>
+            <div class="detail-separator">:</div>
+            <div class="detail-value">
+              {{ \Carbon\Carbon::parse($dissemination->date)->isoFormat('dddd, D
+              MMMM YYYY') }}
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-label">Jumlah Peserta</div>
+            <div class="detail-separator">:</div>
+            <div class="detail-value">{{ count($residents) }} Orang</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Daftar Peserta</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th class="col-no">No</th>
+            <th class="col-name">Nama Lengkap</th>
+            <th class="col-nik">NIK</th>
+            <th class="col-email">Email</th>
+            <th class="col-phone">No. Telepon</th>
+            <th class="col-time">Check In</th>
+            <th class="col-time">Check Out</th>
+            <th class="col-signature">TTD</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($residents as $index => $resident)
+          <tr>
+            <td class="col-no">{{ $index + 1 }}</td>
+            <td class="col-name">{{ $resident->name }}</td>
+            <td class="col-nik">
+              @php $nik = $resident->nik; $maskedNik = substr($nik, 0, 7) .
+              '******' . substr($nik, -4); @endphp {{ $maskedNik }}
+            </td>
+            <td class="col-email">{{ $resident->email ?: '-' }}</td>
+            <td class="col-phone">{{ $resident->phone ?: '-' }}</td>
+            <td class="col-time">
+              {{ $resident->check_in ?
+              \Carbon\Carbon::parse($resident->check_in)->format('H:i') : '-' }}
+            </td>
+            <td class="col-time">
+              {{ $resident->check_out ?
+              \Carbon\Carbon::parse($resident->check_out)->format('H:i') : '-'
+              }}
+            </td>
+            <td class="col-signature">
+              @if($resident->digital_sign_base64)
+              <img
+                src="data:image/png;base64,{{ $resident->digital_sign_base64 }}"
+                alt="Tanda Tangan"
+              />
+              @endif
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+
+      <div class="document-footer">
+        <p>
+          Dokumen ini dicetak pada {{ \Carbon\Carbon::now()->isoFormat('dddd, D
+          MMMM YYYY [pukul] HH:mm') }} WIB
+        </p>
+        <p>
+          © {{ date('Y') }} {{ $dissemination->institution->name }} - Simkopdes
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

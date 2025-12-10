@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Penyampaian Akun LMS Corpu Kementerian Koperasi</title>
+    <style>
+        /* Reset Styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; }
+        
+        /* General Styles */
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; }
+        .container { width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .content { padding: 30px; }
+        
+        /* Typography */
+        h1 { font-size: 22px; color: #065366; margin: 0 0 15px 0; font-weight: 700; line-height: 1.4; text-align: center; }
+        p { font-size: 14px; color: #333333; line-height: 1.6; margin: 0 0 15px 0; }
+        li { font-size: 14px; color: #333333; line-height: 1.6; margin-bottom: 8px; }
+        
+        /* Components */
+        .btn-primary {
+            display: inline-block;
+            background-color: #065366;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Credential Box */
+        .credential-box {
+            background-color: #f0f8ff; /* AliceBlue tint */
+            border: 1px solid #b4dbf7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .credential-row {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .credential-value {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #065366;
+            background-color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        /* Link Box */
+        .link-box {
+            background-color: #eef2f3;
+            border: 1px dashed #065366;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .link-url {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #555;
+            word-break: break-all;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .copy-instruction {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .step-box {
+            background-color: #fffbe6;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            border-top: 1px solid #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <table class="container" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="center" style="padding: 30px 30px 10px 30px;">
+                            <img src="https://kop.go.id/application/views/fe/image/logo_kop_1.png?v3" alt="Logo Kemenkop" style="max-height: 70px; width: auto;" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="content">
+                            <h1>Penyampaian Akun & Akses LMS Corpu Kementerian Koperasi</h1>
+                            
+                            <p>Yth. Bapak/Ibu <strong>{{nama}}</strong>,<br>
+                            <span style="color: #666;">Civitas Kementerian Koperasi</span></p>
+
+                            <p>Dalam rangka penguatan kapasitas SDM dan percepatan transformasi digital pembelajaran, serta menindaklanjuti Surat Edaran Kepala Lembaga Administrasi Negara No 9/K.1/HKM.02.2/2025 perihal akselerasi penerapan sistem pembelajaran terintegrasi, bersama ini kami informasikan bahwa proses pengembangan kompetensi kini difasilitasi melalui <strong>Learning Management System (LMS) Corpu Kementerian Koperasi</strong>.</p>
+
+                            <p>Silakan melakukan login dengan kredensial berikut:</p>
+
+                            <div class="credential-box">
+                                <div class="credential-row">
+                                    Username: <span class="credential-value">{{username}}</span>
+                                </div>
+                                <div class="credential-row" style="margin-bottom: 0;">
+                                    Password: <span class="credential-value">{{password}}</span>
+                                </div>
+                            </div>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="https://lms.kop.go.id" class="btn-primary">
+                                            Login ke LMS Corpu
+                                        </a>
+
+                                        <div style="margin-top: 20px;">
+                                            <div class="link-box">
+                                                <span class="copy-instruction">Salin Tautan Manual:</span>
+                                                <span class="link-url">https://lms.kop.go.id</span>
+                                                <span class="link-url">https://lms.merahputih.kop.id</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="step-box">
+                                <p style="margin: 0 0 10px 0;"><strong>📌 Langkah Wajib Setelah Login:</strong></p>
+                                <ol style="margin: 0; padding-left: 20px; font-size: 14px; color: #333;">
+                                    <li style="margin-bottom: 8px;"><strong>Ganti Password</strong> awal segera demi keamanan akun Anda.</li>
+                                    <li style="margin-bottom: 8px;"><strong>Lengkapi Profil</strong> pengguna dengan data terbaru.</li>
+                                    <li style="margin-bottom: 0;"><strong>Ikuti Kelas/Pelatihan</strong> yang telah ditugaskan sesuai unit kerja masing-masing.</li>
+                                </ol>
+                            </div>
+
+                            <p style="font-size: 13px; color: #666;">
+                                <em>Apabila mengalami kendala dalam proses login atau penggunaan LMS, silakan menghubungi helpdesk melalui email/WhatsApp yang tersedia pada halaman depan LMS.</em>
+                            </p>
+                            
+                            <p>Demikian disampaikan. Atas perhatian dan partisipasi aktif Bapak/Ibu dalam memanfaatkan LMS Corpu Kementerian Koperasi, kami ucapkan terima kasih.</p>
+
+                            <br>
+                            <p style="margin-bottom: 5px;">Hormat kami,</p>
+                            <p style="margin-top: 0;"><strong>Asisten Deputi Digitalisasi Koperasi</strong><br>Deputi Bidang Kelembagaan dan Digitalisasi Koperasi<br>Kementerian Koperasi</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="footer">
+                            Hak Cipta © 2025. Kementerian Koperasi Republik Indonesia
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
