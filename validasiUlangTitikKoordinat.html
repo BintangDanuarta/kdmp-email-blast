@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Validasi Titik Koordinat Lahan KDKMP</title>
+    <style>
+        /* Reset Styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; }
+        
+        /* General Styles */
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; }
+        .container { width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .content { padding: 30px; }
+        
+        /* Typography */
+        h1 { font-size: 22px; color: #065366; margin: 0 0 15px 0; font-weight: 700; line-height: 1.4; text-align: center; }
+        p { font-size: 14px; color: #333333; line-height: 1.6; margin: 0 0 15px 0; }
+        li { font-size: 14px; color: #333333; line-height: 1.6; margin-bottom: 8px; }
+        
+        /* Components */
+        .btn-primary {
+            display: inline-block;
+            background-color: #065366;
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Alert Box (Red/Warning) */
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* Highlight Box (Yellow/Deadline) */
+        .highlight-box {
+            background-color: #fffbe6;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* Data List Box */
+        .data-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .data-item {
+            border-bottom: 1px solid #ddd;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .data-item:last-child { border-bottom: none; }
+        .coord-text { font-family: 'Courier New', Courier, monospace; color: #666; font-size: 12px; }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            border-top: 1px solid #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <table class="container" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="center" style="padding: 30px 30px 10px 30px;">
+                            <img src="https://simkopdes.id/images/simkopdes-color.webp" alt="Logo SIMKOPDES" style="max-height: 60px; width: auto;" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="content">
+                            <h1>Pemutakhiran Data Pemetaan Lahan & Validasi GPS</h1>
+                            
+                            <p>Yth. Bapak/Ibu <strong>{{nama}}</strong>,<br>
+                            <span style="color: #666;">Business Assistant (BA) KDKMP</span></p>
+
+                            <div class="alert-box">
+                                <p style="margin: 0; font-weight: bold; color: #c53030;">⚠️ Temuan Data Koordinat</p>
+                                <p style="margin: 8px 0 0 0; font-size: 13px;">
+                                    Berdasarkan pengecekan sistem, ditemukan entri titik koordinat yang bergeser signifikan (beberapa >5 km hingga melewati batas negara). Hal ini berpotensi mengganggu validasi data dan proses pembangunan.
+                                </p>
+                            </div>
+
+                            <p>Untuk itu, kami mohon bantuan Bapak/Ibu untuk segera melakukan <strong>pemutakhiran dan validasi ulang titik koordinat lahan</strong> pada SIMKOPDES dengan ketentuan sebagai berikut:</p>
+
+                            <ul style="padding-left: 20px; color: #333;">
+                                <li>Gunakan HP dengan <strong>GPS yang akurat</strong> (hindari perkiraan lokasi berbasis jaringan/Wi-Fi).</li>
+                                <li>Aktifkan fitur "Lokasi" pada HP dan pilih mode <strong>Akurasi Tinggi (High Accuracy)</strong>.</li>
+                                <li><strong>Wajib berada di lokasi lahan</strong> secara fisik ketika melakukan update titik.</li>
+                                <li>Tunggu hingga akurasi GPS stabil (akurasi meter) sebelum menyimpan titik.</li>
+                                <li>Lakukan pengambilan titik di area terbuka agar sinyal GPS lebih baik.</li>
+                            </ul>
+
+                            <p style="margin-bottom: 5px;">Berikut daftar koperasi yang perlu dilakukan pemutakhiran:</p>
+                            <div class="data-box">
+                                <div class="data-item">
+                                    <strong>1. {{koperasi_1}}</strong><br>
+                                    <span class="coord">Data Lama: {{lat_lon_}}</span>
+                                </div>
+                                <div class="data-item">
+                                    <strong>2. {{koperasi_2}}</strong><br>
+                                    <span class="coord">Data Lama: {{lat_lon_}}</span>
+                                </div>
+                                </div>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="https://simkopdes.id/masuk" class="btn-primary">
+                                            Update Koordinat Sekarang
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="highlight-box">
+                                <p style="margin: 0; font-size: 13px;"><strong>📅 Batas Akhir: 21 Desember 2025</strong><br>
+                                Mohon diselesaikan segera agar data peta kembali valid dan dapat digunakan untuk proses verifikasi berikutnya.</p>
+                            </div>
+                            
+                            <p>Atas perhatian dan kerja sama Bapak/Ibu, kami ucapkan terima kasih.</p>
+
+                            <br>
+                            <p style="margin-bottom: 5px;">Hormat kami,</p>
+                            <p style="margin-top: 0;"><strong>Tim Admin SIMKOPDES<br>Kementerian Koperasi</strong></p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="footer">
+                            Hak Cipta © 2025. Kementerian Koperasi Republik Indonesia
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
