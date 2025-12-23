@@ -1,171 +1,333 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Sosialisasi Fitur Rapat Anggota Tahunan (RAT)</title>
     <style>
-        /* Reset Styles */
-        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-        img { -ms-interpolation-mode: bicubic; }
-        
-        /* General Styles */
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; }
-        .container { width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .content { padding: 30px; }
-        
-        /* Typography */
-        h1 { font-size: 22px; color: #065366; margin: 0 0 15px 0; font-weight: 700; line-height: 1.4; text-align: center; }
-        p { font-size: 14px; color: #333333; line-height: 1.6; margin: 0 0 15px 0; }
-        li { font-size: 14px; color: #333333; line-height: 1.6; margin-bottom: 5px; }
-        
-        /* Event Box */
-        .event-box {
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        /* Highlight Box (Yellow) */
-        .highlight-box {
-            background-color: #fffbe6;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
+      /* Reset Styles */
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
 
-        /* Components */
-        .btn-primary {
-            display: inline-block;
-            background-color: #065366;
-            color: #ffffff !important;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+      /* General Styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .content {
+        padding: 30px;
+      }
 
-        .passcode-box {
-            background-color: #e6fffa;
-            border: 1px dashed #065366;
-            color: #065366;
-            padding: 8px 15px;
-            text-align: center;
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            display: inline-block;
-        }
+      /* Typography */
+      h1 {
+        font-size: 22px;
+        color: #065366;
+        margin: 0 0 15px 0;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: center;
+      }
+      p {
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.6;
+        margin: 0 0 15px 0;
+      }
+      li {
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.6;
+        margin-bottom: 5px;
+      }
 
-        .footer {
-            background-color: #f9f9f9;
-            padding: 20px;
-            text-align: center;
-            font-size: 12px;
-            color: #888888;
-            border-top: 1px solid #eeeeee;
-        }
+      /* Event Box */
+      .event-box {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      /* Highlight Box (Yellow) */
+      .highlight-box {
+        background-color: #fffbe6;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      /* Components */
+      .btn-primary {
+        display: inline-block;
+        background-color: #065366;
+        color: #ffffff !important;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .passcode-box {
+        background-color: #e6fffa;
+        border: 1px dashed #065366;
+        color: #065366;
+        padding: 8px 15px;
+        text-align: center;
+        border-radius: 6px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 14px;
+        display: inline-block;
+      }
+
+      .footer {
+        background-color: #f9f9f9;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #888888;
+        border-top: 1px solid #eeeeee;
+      }
     </style>
-</head>
-<body>
-    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
-        <tr>
-            <td align="center">
-                <table class="container" cellpadding="0" cellspacing="0">
+  </head>
+  <body>
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f5f5f5; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <table class="container" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center" style="padding: 30px 30px 10px 30px">
+                <img
+                  src="https://simkopdes.id/images/simkopdes-color.webp"
+                  alt="Logo SIMKOPDES"
+                  style="max-height: 60px; width: auto"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td class="content">
+                <h1>Undangan Sosialisasi Fitur RAT pada SIMKOPDES</h1>
+
+                <p>
+                  Yth. Bapak/Ibu <strong>{{nama}}</strong>,<br />
+                  <span style="color: #666"
+                    >Business Assistant (BA) dan PMO<br />
+                    Program Koperasi Desa/Kelurahan Merah Putih</span
+                  >
+                </p>
+
+                <p>
+                  Dalam rangka percepatan digitalisasi Koperasi Desa/Kelurahan
+                  Merah Putih (KDKMP). Untuk mendukung operasionalisasi KDKMP
+                  <strong>secara efektif, transparan, dan akuntabel</strong> dan
+                  Sehubungan dengan berakhirnya tahun buku 2025, dengan ini kami
+                  mengundang Bapak/Ibu untuk hadir pada
+                  <strong
+                    >sosisalisasi fitur pelaporan Rapat Anggota Tahunan (RAT)
+                    pada SIMKOPDES</strong
+                  >
+                  yang akan dilaksanakan pada
+                </p>
+
+                <div class="event-box">
+                  <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td align="center" style="padding: 30px 30px 10px 30px;">
-                            <img src="https://simkopdes.id/images/simkopdes-color.webp" alt="Logo SIMKOPDES" style="max-height: 60px; width: auto;" />
-                        </td>
+                      <td
+                        width="110"
+                        style="
+                          font-weight: bold;
+                          color: #065366;
+                          padding-bottom: 8px;
+                          vertical-align: top;
+                        "
+                      >
+                        Hari/Tanggal
+                      </td>
+                      <td style="padding-bottom: 8px; vertical-align: top">
+                        : Rabu, 24 Desember 2025
+                      </td>
                     </tr>
-
                     <tr>
-                        <td class="content">
-                            <h1>Undangan Sosialisasi Fitur RAT pada SIMKOPDES</h1>
-                            
-                            <p>Yth. Bapak/Ibu <strong>{{nama}}</strong>,<br>
-                            <span style="color: #666;">Business Assistant (BA) dan PMO<br>
-                            Program Koperasi Desa/Kelurahan Merah Putih</span></p>
-
-                            <p>Dalam rangka peningkatan tata kelola koperasi serta optimalisasi pemanfaatan SIMKOPDES, kami mengundang Bapak/Ibu untuk menghadiri kegiatan <strong>Sosialisasi Fitur Rapat Anggota Tahunan (RAT)</strong> pada SIMKOPDES.</p>
-
-                            <div class="event-box">
-                                <table width="100%" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td width="110" style="font-weight: bold; color: #065366; padding-bottom: 8px; vertical-align: top;">Hari/Tanggal</td>
-                                        <td style="padding-bottom: 8px; vertical-align: top;">: Rabu, 24 Desember 2025</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: bold; color: #065366; padding-bottom: 8px; vertical-align: top;">Waktu</td>
-                                        <td style="padding-bottom: 8px; vertical-align: top;">: 08.00 – 10.00 WIB</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: bold; color: #065366; padding-bottom: 8px; vertical-align: top;">Agenda</td>
-                                        <td style="padding-bottom: 8px; vertical-align: top;">
-                                            <ul style="padding-left: 15px; margin: 0;">
-                                                <li>Pengenalan dan alur proses fitur RAT pada SIMKOPDES</li>
-                                                <li>Tata cara pengisian dan unggah dokumen RAT</li>
-                                                <li>Sesi tanya jawab dan kendala lapangan</li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-weight: bold; color: #065366; vertical-align: top;">Tempat</td>
-                                        <td style="vertical-align: top;">: Via Zoom Meeting</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
-                                <tr>
-                                    <td align="center">
-                                        <a href="{{link_zoom}}" class="btn-primary" target="_blank">
-                                            Gabung Zoom Meeting
-                                        </a>
-                                        <br>
-                                        <div class="passcode-box">
-                                            Passcode: <strong>{{passcode}}</strong>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
-                            <div class="highlight-box">
-                                <p style="margin: 0; font-size: 13px;"><strong>⚠️ Catatan Penting:</strong><br>
-                                Sesuai dengan peraturan perundang-undangan, RAT Koperasi wajib dilaksanakan <strong>3 (tiga) bulan setelah tutup buku tahunan (Januari s.d. Maret)</strong>. Oleh karena itu, BA/PMO wajib mengikuti sosialisasi ini untuk persiapan pendampingan sebelum periode tersebut.</p>
-                            </div>
-
-                            <p>Kami mohon Bapak/Ibu dapat hadir <strong>tepat waktu</strong> dan mengikuti kegiatan sampai selesai. Partisipasi BA/PMO sangat diperlukan untuk memastikan implementasi fitur RAT dapat berjalan seragam dan sesuai ketentuan di wilayah pendampingan masing-masing.</p>
-                            
-                            <p>Demikian undangan ini kami sampaikan. Atas perhatian dan kerja sama Bapak/Ibu, kami ucapkan terima kasih.</p>
-
-                            <br>
-                            <p style="margin-bottom: 5px;">Hormat kami,</p>
-                            <p style="margin-top: 0;"><strong>Community Development Team<br>SIMKOPDES</strong></p>
-                            
-                            <p style="font-size: 13px; margin-top: 15px;">
-                                <a href="https://wa.me/628111500587" target="_blank" style="color: #065366; text-decoration: none; font-weight: bold;">
-                                    📱 Hubungi Kami di WhatsApp: +62 811 1500 587
-                                </a>
-                            </p>
-                        </td>
+                      <td
+                        style="
+                          font-weight: bold;
+                          color: #065366;
+                          padding-bottom: 8px;
+                          vertical-align: top;
+                        "
+                      >
+                        Waktu
+                      </td>
+                      <td style="padding-bottom: 8px; vertical-align: top">
+                        : 08.00 – 10.00 WIB
+                      </td>
                     </tr>
-
                     <tr>
-                        <td class="footer">
-                            Hak Cipta © 2025. Kementerian Koperasi Republik Indonesia
-                        </td>
+                      <td
+                        style="
+                          font-weight: bold;
+                          color: #065366;
+                          padding-bottom: 8px;
+                          vertical-align: top;
+                        "
+                      >
+                        Agenda
+                      </td>
+                      <td style="padding-bottom: 8px; vertical-align: top">
+                        <ul style="padding-left: 15px; margin: 0">
+                          <li>
+                            Pengenalan dan alur proses fitur RAT pada SIMKOPDES
+                          </li>
+                          <li>Tata cara pengisian dan unggah dokumen RAT</li>
+                          <li>Sesi tanya jawab dan kendala lapangan</li>
+                        </ul>
+                      </td>
                     </tr>
+                    <tr>
+                      <td
+                        style="
+                          font-weight: bold;
+                          color: #065366;
+                          vertical-align: top;
+                        "
+                      >
+                        Tempat
+                      </td>
+                      <td style="vertical-align: top">: Via Zoom Meeting</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 20px 0"
+                >
+                  <tr>
+                    <td align="center">
+                      <a
+                        href="https://www.s.id/sosialisasirat"
+                        class="btn-primary"
+                        target="_blank"
+                      >
+                        Gabung Zoom Meeting
+                      </a>
+                      <br />
+                      <div class="passcode-box">
+                        Passcode: <strong>RAT2025</strong>
+                      </div>
+                    </td>
+                  </tr>
                 </table>
-            </td>
-        </tr>
+
+                <div class="highlight-box">
+                  <p style="margin: 0; font-size: 13px">
+                    <strong>⚠️ Catatan Penting:</strong><br />
+                    Sesuai dengan peraturan perundang-undangan, RAT Koperasi
+                    wajib dilaksanakan
+                    <strong
+                      >3 (tiga) bulan setelah tutup buku tahunan (Januari s.d.
+                      Maret)</strong
+                    >. Oleh karena itu, BA/PMO wajib mengikuti sosialisasi ini
+                    untuk persiapan pendampingan sebelum periode tersebut.
+                  </p>
+                </div>
+
+                <p>
+                  Kami mohon Bapak/Ibu dapat hadir
+                  <strong>tepat waktu</strong> dan mengikuti kegiatan sampai
+                  selesai. Partisipasi BA/PMO sangat diperlukan untuk memastikan
+                  implementasi fitur RAT dapat berjalan seragam dan sesuai
+                  ketentuan di wilayah pendampingan masing-masing.
+                </p>
+
+                <p>
+                  Sehubungan dengan hal tersebut, kami meminta Bapak/lbu untuk
+                  hadir tepat waktu. Untuk konfirmasi kehadiran dapat
+                  menghubungi nomor WhatsApp<a
+                    href="https://wa.me/6288971091001"
+                    target="_blank"
+                    style="
+                      color: #065366;
+                      text-decoration: none;
+                      font-weight: bold;
+                    "
+                  >
+                    Sdr. Faiz (088971091001)
+                  </a>
+                </p>
+
+                <p>
+                  Demikian undangan ini kami sampaikan. Atas perhatian dan kerja
+                  sama Bapak/Ibu, kami ucapkan terima kasih.
+                </p>
+
+                <br />
+                <p style="margin-bottom: 5px">Hormat kami,</p>
+                <p style="margin-top: 0">
+                  <strong>Community Development Team<br />SIMKOPDES</strong>
+                </p>
+
+                <p style="font-size: 13px; margin-top: 15px">
+                  <a
+                    href="https://wa.me/628111500587"
+                    target="_blank"
+                    style="
+                      color: #065366;
+                      text-decoration: none;
+                      font-weight: bold;
+                    "
+                  >
+                    📱 Hubungi Kami di WhatsApp: +62 811 1500 587
+                  </a>
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="footer">
+                Hak Cipta © 2025. Kementerian Koperasi Republik Indonesia
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
     </table>
-</body>
+  </body>
 </html>
