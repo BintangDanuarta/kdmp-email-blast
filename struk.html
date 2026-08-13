@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Struk Bukti Transaksi Pembelanjaan</title>
+    <style>
+        @page {
+            margin: 15mm;
+        }
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            line-height: 1.5;
+            background-color: #ffffff;
+        }
+        
+        /* Brand Colors: 
+           Primary: #065366 (Dark Teal SIMKOPDES)
+           Accent: #c53030 (Red)
+        */
+
+        .header-container {
+            width: 100%;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #065366;
+            padding-bottom: 15px;
+        }
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .logo-cell {
+            width: 25%;
+            vertical-align: middle;
+        }
+        .logo-cell img {
+            max-height: 55px;
+            width: auto;
+        }
+        .coop-info-cell {
+            width: 75%;
+            text-align: right;
+            vertical-align: middle;
+        }
+        .coop-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #065366;
+            text-transform: uppercase;
+            margin: 0 0 4px 0;
+            letter-spacing: 0.5px;
+        }
+        .coop-address {
+            font-size: 10px;
+            color: #666666;
+            margin: 0;
+            line-height: 1.3;
+        }
+        
+        .document-title-bar {
+            background-color: #065366;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            width: 100%;
+            border: 1px dashed #065366;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        .info-card td {
+            padding: 12px 15px;
+            vertical-align: top;
+            font-size: 11px;
+        }
+        .info-label {
+            color: #666666;
+            width: 130px;
+            display: inline-block;
+        }
+        .info-value {
+            color: #222222;
+            font-weight: bold;
+        }
+        
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .items-table th {
+            background-color: #eef9fd;
+            color: #065366;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px;
+            font-size: 11px;
+            border-top: 1px solid #bcebfd;
+            border-bottom: 1px solid #bcebfd;
+            text-transform: uppercase;
+        }
+        .items-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eeeeee;
+            font-size: 11px;
+        }
+        .items-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        .text-center {
+            text-align: center;
+        }
+        
+        .summary-container {
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+        .summary-table {
+            width: 50%;
+            margin-left: auto;
+            border-collapse: collapse;
+        }
+        .summary-table td {
+            padding: 6px 10px;
+            font-size: 11px;
+        }
+        .summary-label {
+            text-align: right;
+            color: #555555;
+        }
+        .summary-value {
+            text-align: right;
+            font-weight: bold;
+            color: #222222;
+        }
+        .total-row td {
+            border-top: 2px solid #065366;
+            padding-top: 10px;
+            font-size: 13px;
+        }
+        .total-label {
+            color: #065366;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .total-amount {
+            color: #065366;
+            font-weight: 800;
+            font-size: 14px;
+        }
+        .discount-badge {
+            color: #c53030;
+        }
+        
+        .receipt-footer {
+            margin-top: 40px;
+            border-top: 1px dashed #cccccc;
+            padding-top: 15px;
+            text-align: center;
+            font-size: 10px;
+            color: #777777;
+            line-height: 1.6;
+        }
+        .system-stamp {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #065366;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header-container">
+        <table class="header-table">
+            <tr>
+                <td class="logo-cell">
+                    <img src="https://simkopdes.go.id/images/logo-kemenkop.png" alt="Logo Kemenkop" />
+                </td>
+                <td class="coop-info-cell">
+                    <div class="coop-name">{{ $cooperative_name ?? 'KOPERASI DESA MERAH PUTIH' }}</div>
+                    <div class="coop-address">
+                        {{ $cooperative_address ?? 'Sistem Informasi Koperasi Desa (SIMKOPDES)' }}<br>
+                        Kementerian Koperasi Republik Indonesia
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Title Bar -->
+    <div class="document-title-bar">
+        Struk Bukti Transaksi Pembelanjaan
+    </div>
+
+    <!-- Metadata Information Card -->
+    <table class="info-card">
+        <tr>
+            <td width="50%">
+                <div><span class="info-label">No. Invoice</span>: <span class="info-value">{{ $invoice_number ?? '-' }}</span></div>
+                <div style="margin-top: 6px;"><span class="info-label">Tanggal Transaksi</span>: <span class="info-value">{{ $transaction_date ?? '-' }}</span></div>
+                <div style="margin-top: 6px;"><span class="info-label">Sumber Transaksi</span>: <span class="info-value">{{ strtoupper($source ?? 'POS') }}</span></div>
+            </td>
+            <td width="50%">
+                <div><span class="info-label">Nama Pelanggan</span>: <span class="info-value">{{ $customer_name ?? '-' }}</span></div>
+                <div style="margin-top: 6px;"><span class="info-label">No. Telepon</span>: <span class="info-value">{{ $phone ?? '-' }}</span></div>
+                <div style="margin-top: 6px;"><span class="info-label">Metode Pembayaran</span>: <span class="info-value">{{ strtoupper($payment_method ?? 'CASH') }}</span></div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Rincian Produk -->
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th width="5%" class="text-center">No</th>
+                <th width="45%">Nama Produk / Barang</th>
+                <th width="15%" class="text-right">Harga Unit</th>
+                <th width="15%" class="text-right">Jumlah</th>
+                <th width="20%" class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($items as $index => $item)
+            <tr>
+                <td class="text-center">{{ $index + 1 }}</td>
+                <td>{{ $item['product_name'] ?? 'Produk Koperasi' }}</td>
+                <td class="text-right">Rp {{ number_format((float)($item['price'] ?? 0), 0, ',', '.') }}</td>
+                <td class="text-right">{{ $item['quantity'] }}</td>
+                <td class="text-right">Rp {{ number_format((float)($item['total_price_item'] ?? ($item['price'] * $item['quantity'])), 0, ',', '.') }}</td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="5" class="text-center" style="color: #888888; padding: 20px;">Tidak ada rincian produk</td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
+
+    <!-- Summary Section -->
+    <div class="summary-container">
+        <table class="summary-table">
+            @if(!empty($subtotal_payment))
+            <tr>
+                <td class="summary-label">Subtotal Transaksi:</td>
+                <td class="summary-value">Rp {{ number_format((float)$subtotal_payment, 0, ',', '.') }}</td>
+            </tr>
+            @endif
+            
+            @if(!empty($voucher_amount))
+            <tr>
+                <td class="summary-label">Voucher Diskon ({{ $voucher_code ?? '' }}):</td>
+                <td class="summary-value discount-badge">- Rp {{ number_format((float)$voucher_amount, 0, ',', '.') }}</td>
+            </tr>
+            @endif
+            
+            <tr class="total-row">
+                <td class="summary-label total-label">Total Pembayaran:</td>
+                <td class="summary-value total-amount">Rp {{ number_format((float)$total_payment, 0, ',', '.') }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="receipt-footer">
+        <div style="margin-bottom: 4px;">Terima kasih telah berbelanja di <strong>{{ $cooperative_name ?? 'Koperasi Desa Merah Putih' }}</strong>.</div>
+        <div>Struk ini merupakan bukti pembayaran transaksi yang sah yang diterbitkan melalui sistem.</div>
+        <div class="system-stamp">SIMKOPDES KEMENTERIAN KOPERASI RI</div>
+    </div>
+
+</body>
+</html>
